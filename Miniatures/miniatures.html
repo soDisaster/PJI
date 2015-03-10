@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Gestion de corpus</title>
+    <link rel="stylesheet" href="base.css" />
+
+  </head>
+
+  <body>
+
+    <header>
+
+        <!-- Dossier -->
+        <label for="file">
+            <img src="../Images/dossier.jpg" width="125" height="100"/>
+        </label>
+        <input id="file" type="file" style="display: none;"/>
+
+       
+    </header>
+
+    <!-- Liste déroulante bases de données et bouton d'ajout -->
+     <div id="div_bases">
+        <select name="bases" id="bases">
+            <option value="1">Base1</option>
+        </select>
+    </div>
+
+    <div id="min"></div>
+
+
+
+    <script>
+
+   /*  Miniatures   */
+
+
+    (function() {
+
+        function miniatures(file) {
+
+            var reader = new FileReader();
+
+            reader.addEventListener('load', function() {
+
+                var imgElement = document.createElement('img');
+                imgElement.style.maxWidth = '250px';
+                imgElement.style.maxHeight = '250px';
+                imgElement.src = this.result;
+                min.appendChild(imgElement);
+
+            }, false);
+
+            reader.readAsDataURL(file);
+
+        }
+
+        var allowedTypes = ['png', 'jpg', 'jpeg', 'gif'],
+            fileInput = document.querySelector('#file'),
+            min = document.querySelector('#min');
+
+        fileInput.addEventListener('change', function() {
+
+            var files = this.files,
+                filesLen = files.length,
+                imgType;
+
+            for (var i = 0 ; i < filesLen ; i++) {
+
+                imgType = files[i].name.split('.');
+                imgType = imgType[imgType.length - 1];
+
+                if(allowedTypes.indexOf(imgType) != -1) {
+                    miniatures(files[i]);
+                }
+
+            }
+
+        }, false);
+
+     })();
+
+    </script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,26 @@
+#div_bases
+{
+	position: absolute;
+    left:40%;
+    right:45%;
+    top:25%;
+}
+
+#min
+{
+	position: absolute;
+    left: 38%;
+    right: 45%;
+	top : 40%;
+
+}
+
+
+select#bases{
+
+	width: 200px;
+}
+
+select {
+	text-align:center;
+}
