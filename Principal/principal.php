@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Gestion de corpus</title>
     <link rel="stylesheet" href="base.css" />
-    <script type="text/javascript" src="principale.js"> </script>
+    <script type="text/javascript" src="principal.js"> </script>
 
   </head>
 
