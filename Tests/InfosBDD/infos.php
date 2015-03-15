@@ -20,11 +20,12 @@
 		//insert rows
 
 		$db->exec('INSERT INTO chatons (id_chaton, couleur_chaton, angora) VALUES (1, "roux","FAUX")');
-		echo "Row inserted \n";
+		echo "Row inserted <br/>";
 		$db->exec('INSERT INTO chatons (id_chaton, couleur_chaton, angora) VALUES (2, "blanc","TRUE")');
-		echo "Row inserted \n";
+		echo "Row inserted <br/>";
 		$db->exec('INSERT INTO chatons (couleur_chaton, angora) VALUES ("noir","TRUE")');
-		echo "Row inserted \n";
+		echo "Row inserted <br/>";
+		echo "<br/>";
 
 
 		$db->exec('ALTER TABLE chatons ADD COLUMN groupe boolean');
