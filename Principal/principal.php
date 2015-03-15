@@ -34,5 +34,20 @@
     <div id="min"></div>
 
 
+
+    <!-- 
+
+    <p> Ici </p>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+      $(document).ready(function(){
+        $("p").click(function(){
+            $(this).hide();
+        });
+    });
+    </script>
+   -->
+
+
   </body>
 </html>

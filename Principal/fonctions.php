@@ -2,7 +2,7 @@
 
     function listeD(){
 
-        echo '<select name="dossiers">';
+        echo '<select name="bases" onchange="setData()">';
     	$dir = getcwd(). "/Bases";
     	if (is_dir($dir)) {
             if ($dh = opendir($dir)) {

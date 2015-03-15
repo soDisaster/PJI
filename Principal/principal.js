@@ -42,3 +42,14 @@ function test(file) {
         }, false);
 
 };
+
+
+function setData(){
+
+    $(document).ready(function(){
+        $("button").click(function(){
+            $(this).hide();
+        });
+    });
+
+};
