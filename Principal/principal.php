@@ -32,6 +32,7 @@
     <!-- div contenant les miniatures -->
 
     <div id="min"></div>
+    <p> Là </p>
 
 
 
@@ -41,11 +42,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>
       $(document).ready(function(){
-          $("#test").click(function(){
-              $(this).hide();
+          $('select[name="bases"]').change(function() { // lorsqu'on change de valeur dans la liste
+              $("#aff").load('infos.php'); 
           });
       });
+
     </script> 
+
+    <p id="aff"> </p>
 
   </body>
 </html>
