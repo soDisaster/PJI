@@ -1,6 +1,8 @@
-<?php
+<?php 
 
-		$db = new PDO('sqlite:animaux.sqlite');
+		$var = $_POST['selectbase'];
+		echo $var;
+		$db = new PDO('sqlite:'.$var);
 		$req = $db->query("SELECT * FROM chatons");
 		$champs = $db->query("PRAGMA table_info(chatons)");
 		$colcount = $req->columnCount();
@@ -14,5 +16,4 @@
 				print_r($r[1]);
 				print("<br/>");
 		}
-
 ?>

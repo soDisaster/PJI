@@ -32,7 +32,6 @@
     <!-- div contenant les miniatures -->
 
     <div id="min"></div>
-    <p> Là </p>
 
 
 
@@ -42,8 +41,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>
       $(document).ready(function(){
-          $('select[name="bases"]').change(function() { // lorsqu'on change de valeur dans la liste
-              $("#aff").load('infos.php'); 
+          $('select[name="bases"]').change(function() {
+                /*var $selectbase = $("select[name='bases'] > option:selected").val();
+                  $.ajax({
+                    url:'infos.php',
+                    type:'post',
+                    data:'selectbase=' + $("select[name='bases'] > option:selected").val()
+                  });
+
+                $("#aff").load('infos.php');
+                document.write("Ici");*/
+
           });
       });
 

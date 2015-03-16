@@ -4,6 +4,7 @@
 
         echo '<select name="bases" onchange="setData()">';
     	$dir = getcwd(). "/Bases";
+        echo '<option value="bases"> Bases </option>';
     	if (is_dir($dir)) {
             if ($dh = opendir($dir)) {
                 while (($file = readdir($dh)) != false) {
