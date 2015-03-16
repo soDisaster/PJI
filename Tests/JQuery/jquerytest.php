@@ -14,7 +14,7 @@
 
         <!-- Dossier -->
         <label for="file">
-            <img src="Images/dossier.jpg" width="125" height="100"/>
+            <img src="dossier.jpg" width="125" height="100"/>
         </label>
         <input id="file" type="file" style="display: none;" onclick="test()"/>
 
