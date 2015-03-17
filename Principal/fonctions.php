@@ -2,7 +2,8 @@
 
     function listeD(){
 
-        echo '<select name="bases" onchange="setData()">';
+
+        echo '<select id="bases" name="bases" onchange="setData()">';
     	$dir = getcwd(). "/Bases";
         echo '<option value="bases"> Bases </option>';
     	if (is_dir($dir)) {

@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <title>Gestion de corpus</title>
     <link rel="stylesheet" href="base.css" />
-    <script type="text/javascript" src="principal.js"> </script>
+    <script type="text/javascript" src="principal.js"> </script> 
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>.
 
   </head>
 
@@ -35,23 +36,30 @@
 
 
 
-    <button id="test"> Ici </button>
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    
     <script>
-      $(document).ready(function(){
-          $('select[name="bases"]').change(function() {
-                /*var $selectbase = $("select[name='bases'] > option:selected").val();
-                  $.ajax({
+      
+      jQuery(document).ready(function(){
+          jQuery('select[name="bases"]').change(function() {
+                  var selectbase = jQuery("select[name='bases'] > option:selected").text();
+                  alert(selectbase);
+                  jQuery.ajax({
                     url:'infos.php',
                     type:'post',
-                    data:'selectbase=' + $("select[name='bases'] > option:selected").val()
-                  });
+                    data: 'selectbase=' + selectbase,
+                    dataType : 'html',
+                    success : function(content){
+                      console.log(content);
+                      $('#aff').append(content);
+                    },
+                     error : function(){
+                       document.write("erreur");
+                    }
 
-                $("#aff").load('infos.php');
-                document.write("Ici");*/
 
+                });
+
+                
           });
       });
 
