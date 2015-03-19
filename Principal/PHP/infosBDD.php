@@ -1,7 +1,9 @@
 <?php 
 
-		$db = new PDO('sqlite:'.$_POST['selectbase']);
-		$req = $db->query("SELECT * FROM chatons");
+		$db = new PDO('sqlite:../Bases/'.$_POST['selectbase']);
+		if($req = $db->query("SELECT * FROM chatons")){
+
+
 		$champs = $db->query("PRAGMA table_info(chatons)");
 		$colcount = $req->columnCount();
 		while ($r = $req->fetch(PDO::FETCH_BOTH)){
@@ -14,4 +16,5 @@
 				print_r($r[1]);
 				print("<br/>");
 		}
+	}
 ?>
