@@ -43,6 +43,8 @@
         <option value="types"> Types </option>
         <option value="types"> INTEGER </option>
         <option value="types"> boolean </option>
+        <option value="types"> VARCHAR(100) </option>
+        <option value="types"> REAL </option>
     </select>
 
 
@@ -62,9 +64,6 @@
                     success : function(content){
                       console.log(content);
                       $('#aff').append(content);
-                    },
-                     error : function(){
-                       document.write("erreur");
                     }
                   });
           }); 
@@ -87,7 +86,7 @@
                     dataType : 'html',
                     success : function(content){
                       $('#bases').append(content);
-                    },
+                    }
               });
            });  
 
