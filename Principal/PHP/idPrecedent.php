@@ -1,5 +1,5 @@
 <?php 
-		
+
 		$retourTab;
 
 		$tmp = explode($_POST['selectbase'], ".");
@@ -19,22 +19,23 @@
 			$lesChamps[$cleChamp] = $n[1];
 			$cleChamp += 1;
 		}
-		
-		$id = $_POST['idEnCours'] + 1;
+
+		$id = $_POST['idEnCours'] - 1;
 		$dernierIdTmp = $db->query("SELECT ". $lesChamps[0] ." FROM ". $nomTable);
+		$d = $dernierIdTmp->fetch(PDO::FETCH_BOTH);
+		$premierId = $d[0];
 		while($d = $dernierIdTmp->fetch(PDO::FETCH_BOTH)){
 			$dernierId = $d[0];
 		}
-		if($id > $dernierId)
-			$id = 1;
+		if($id < $premierId)
+			$id = $dernierId;
+		
 
 		foreach($lesChamps as $unChamp){
 
 			$retourTab.= "<tr>";
 			$retourTab.= "<td>". $unChamp . "</td>";
-
-			$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = ". $id . "");
-						
+			$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = ". $id . "");		
 			$r = $reqVal->fetch();
 			$retourTab.= "<td>". $r[0]  . "</td>";	
 
