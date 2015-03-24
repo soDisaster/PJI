@@ -47,8 +47,8 @@
         <option value="types"> REAL </option>
     </select>
 
-
-
+    <button id="idPrecedent"> idPrecedent </button>
+    <button id="idSuivant"> idSuivant </button>
     
     <script>
       
@@ -63,7 +63,7 @@
                     dataType : 'html',
                     success : function(content){
                       console.log(content);
-                      $('#aff').append(content);
+                      $('#aff').html(content);
                     }
                   });
           }); 
@@ -102,8 +102,21 @@
                     dataType : 'html'
     
               }); 
-          });   
+          }); 
 
+
+          $('#idSuivant').click(function() {
+            var selectbase = $("select[name='bases'] > option:selected").text();
+             $.ajax({
+                  url:'idSuivant.php',
+                  type:'post',
+                  data: 'selectbase=' + selectbase,
+                  success : function(content){
+                      $('#aff').html(content);
+                  }
+              });   
+            
+           });  
 
       });
 

@@ -26,9 +26,11 @@
 
 			$retourTab.= "<tr>";
 			$retourTab.= "<td>". $unChamp . "</td>";
-			$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = '1'");
+			$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = '2'");
+						
 			$r = $reqVal->fetch();
 			$retourTab.= "<td>". $r[0]  . "</td>";	
+
 			$retourTab.= "</tr>";
 		}
 
