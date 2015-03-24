@@ -30,10 +30,7 @@
 			$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable);
 						
 			while ($r = $reqVal->fetch(PDO::FETCH_BOTH)){
-				$nombreDeLignesPourChamp = $reqVal->columnCount();
-				for ($j = 0; $j <= $nombreDeLignesPourChamp ; $j++) {
-					$retourTab.= "<td>". $r[$j]  . "</td>";	
-				}
+				$retourTab.= "<td>". $r[0]  . "</td>";	
 			}
 
 			$retourTab.= "</tr>";
