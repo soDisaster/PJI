@@ -14,10 +14,10 @@
     <header>
 
         <!-- Dossier -->
-        <label for="file">
+        <label id="dossier">
             <img src="../ImagesInterface/dossier.jpg" width="125" height="100"/>
         </label>
-        <input id="file" type="file" style="display: none;" onclick="test()"/>
+        <input style="display: none;"/>
 
        
     </header>
@@ -137,7 +137,20 @@
                   }
               });   
             
-           });    
+           });  
+
+           $('#dossier').click(function() {
+            var selectbase = $("select[name='bases'] > option:selected").text();
+             $.ajax({
+                  url:'openDir.php',
+                  type:'post',
+                  data: 'selectbase=' + selectbase,
+                  success : function(content){
+                      console.log(content);
+                  }
+              });   
+            
+           });     
 
       });
 
@@ -145,6 +158,7 @@
 
     <table id="aff"> </table>
     <p id="test"> </p>
+    
 
   </body>
 </html>

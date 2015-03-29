@@ -28,8 +28,17 @@
 			$retourTab.= "<td>". $unChamp . "</td>";
 			$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = '1'");
 			$r = $reqVal->fetch();
-			$retourTab.= "<td>". $r[0]  . "</td>";	
+			if($unChamp == "image".$nomTable){
+				$tmp = explode(".", $r[0]);
+				$type = $tmp[1];
+				header("content-type: image/". $type);
+				echo $reqVal->fetchColumn();
+			}
+			else{
+				$retourTab.= "<td>". $r[0]  . "</td>";	
+			}
 			$retourTab.= "</tr>";
+		
 			if($unChamp == $lesChamps[0]){
 				$idEnCours = $r[0];
 			}

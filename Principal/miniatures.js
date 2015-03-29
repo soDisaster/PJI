@@ -42,3 +42,8 @@ function test(file) {
         }, false);
 
 };
+
+function dossier(){
+  var obj = new ActiveXObject("WScript.Shell" );
+  obj.run('explorer.exe /e "//Images"', 0, true);
+};
