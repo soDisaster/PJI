@@ -1,6 +1,6 @@
 <?php
 
-//function test(){
+
 	$dbh = new PDO('sqlite:images.sqlite');
 	//$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 	$dbh->exec("CREATE TABLE IF NOT EXISTS image (
@@ -16,5 +16,5 @@
 	$q = $dbh->query("SELECT img from image");
 	header("Content-Type: image/bmp");
 	echo $q->fetchColumn();
-//}
+
 ?>

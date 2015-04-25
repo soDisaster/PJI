@@ -3,7 +3,6 @@
 		$retourTab;
 
 		$tmp = explode($_POST['selectbase'], ".");
-		$nomBase = $tmp[0];
 		
 		$db = new PDO('sqlite:../Bases/'.$_POST['selectbase']);
 
@@ -26,22 +25,37 @@
 			$dernierId = $d[0];
 		}
 		if($id > $dernierId)
-			$id = 1;
+			$id = 0;
 
 		foreach($lesChamps as $unChamp){
 
-			$retourTab.= "<tr>";
-			$retourTab.= "<td>". $unChamp . "</td>";
+			if($unChamp != "image".$nomTable){
+				if($unChamp == "id".$nomTable){
+					$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]." = ". $id ."");
+					$r = $reqVal->fetch();
+					$idEnCours = $r[0];
+				}
+				else{
+					$retourTab.= "<p> ";
+					$retourTab.= "<label for='" . $unChamp . "'>" . $unChamp . "</label>";
+					$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = ". $id ."");		
+					$r = $reqVal->fetch();
+					$retourTab.= "<input type='text' id='" . $unChamp . "'' value='". $r[0]  . "'/>";
+					$retourTab.= "</p>";
+				}	
 
-			$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = ". $id . "");
-						
-			$r = $reqVal->fetch();
-			$retourTab.= "<td>". $r[0]  . "</td>";	
 
-			$retourTab.= "</tr>";
+			}
+			
+			if($unChamp == "image".$nomTable){
+		
+				$img = "<img src='afficherImageBDD.php?base=". $_POST['selectbase']. "&nomTable=". $nomTable . "&id=". $id ."'/>";
+			}
+			
 		}
+	
 
 			
 
-		echo $retourTab .",". $id;
+		echo $retourTab .",". $img .",". $idEnCours;
 ?>

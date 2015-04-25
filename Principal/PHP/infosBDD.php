@@ -1,7 +1,7 @@
 <?php 
 
+		
 
-		$retourTab;
 
 		$tmp = explode($_POST['selectbase'], ".");
 		$nomBase = $tmp[0];
@@ -21,28 +21,30 @@
 			$cleChamp += 1;
 		}
 
-		$q = $db->query("SELECT image" . $nomTable . " FROM ". $nomTable);
-		//include "../../Tests/InsertionImageBDD/image.php";
-		//header("Content-Type: image/bmp");
-		echo "<img src='image.php' alt='test'/>";
-		//test();
-		//echo "Et même ici !";
-		
-
 		foreach($lesChamps as $unChamp){
 
 			if($unChamp != "image".$nomTable){
-				$retourTab.= "<tr>";
-					$retourTab.= "<td>". $unChamp . "</td>";
-					$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = '1' ");
-				
+				if($unChamp == "id".$nomTable){
+					$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = 0 ");
 					$r = $reqVal->fetch();
-					$retourTab.= "<td>". $r[0]  . "</td>";	
-					$retourTab.= "</tr>";
+					$idEnCours = $r[0];
+				}
+				else{
+				    $retourTab.= "<p>";
+				    $retourTab.= "<label for='" . $unChamp . "'>" . $unChamp . "</label>";
+					$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = 0 ");
+					$r = $reqVal->fetch();
+					if($r[0] == ""){
+					$retourTab.= "<input id='" . $unChamp . "' value=''/>";
+				    }
+				    else{
+				    	$retourTab.= "<input  id='" . $unChamp . "'' value='". $r[0]  . "'/>";
+				    }
+				    $retourTab.= "</p>";
+				}
 			}
-			if($unChamp == $lesChamps[0]){
-				$idEnCours = $r[0];
-			}
+			
+
 		}
 
 			

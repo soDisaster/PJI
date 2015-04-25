@@ -33,16 +33,31 @@
 
 		foreach($lesChamps as $unChamp){
 
-			$retourTab.= "<tr>";
-			$retourTab.= "<td>". $unChamp . "</td>";
-			$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = ". $id . "");		
-			$r = $reqVal->fetch();
-			$retourTab.= "<td>". $r[0]  . "</td>";	
+			if($unChamp != "image".$nomTable ){
 
-			$retourTab.= "</tr>";
-		}
+				if($unChamp == "id".$nomTable){
+					$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = ". $id);
+					$r = $reqVal->fetch();
+					$idEnCours = $r[0];
+			    }
+			    else{
+					$retourTab.= "<p> ";
+					$retourTab.= "<label for='" . $unChamp . "'>" . $unChamp . "</label>";
+					$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = ". $id . "");		
+					$r = $reqVal->fetch();
+					$retourTab.= "<input type='text' id='" . $unChamp . "'' value='". $r[0]  . "'/>";
+					$retourTab.= "</p>";	
+				}
 
+			}
 			
+			
+			if($unChamp == "image".$nomTable){
+				
+				$img = "<img src='afficherImageBDD.php?base=". $_POST['selectbase']. "&nomTable=". $nomTable . "&id=". $id ."'/>";
+			}
+		}
+	
 
-		echo $retourTab .",". $id;
+		echo $retourTab .",". $img .",". $idEnCours;
 ?>

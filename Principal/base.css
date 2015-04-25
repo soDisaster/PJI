@@ -1,26 +1,9 @@
 #bases
 {
-	position: absolute;
     left:40%;
     right:45%;
     top:25%;
-}
-
-#min
-{
-	position: absolute;
-    left: 38%;
-    right: 45%;
-	top : 40%;
-
+    width: 1000px;
 }
 
 
-select #bases{
-
-	width: 200px;
-}
-
-select {
-	text-align:center;
-}
