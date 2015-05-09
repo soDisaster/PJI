@@ -5,7 +5,7 @@
 
         echo '<select id="bases" name="bases">';
     	$dir = "../Bases";
-        echo '<option value="bases"> Bases </option>';
+        echo '<option value="bases" disabled selected> Bases </option>';
     	if (is_dir($dir)) {
             if ($dh = opendir($dir)) {
                 while (($file = readdir($dh)) != false) {

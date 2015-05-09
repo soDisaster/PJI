@@ -29,7 +29,7 @@
 
 		foreach($lesChamps as $unChamp){
 
-			if($unChamp != "image".$nomTable){
+			if($unChamp != "image".$nomTable && $unChamp != "imageMin".$nomTable){
 				if($unChamp == "id".$nomTable){
 					$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]." = ". $id ."");
 					$r = $reqVal->fetch();
@@ -41,16 +41,20 @@
 					$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = ". $id ."");		
 					$r = $reqVal->fetch();
 					$retourTab.= "<input type='text' id='" . $unChamp . "'' value='". $r[0]  . "'/>";
+					$retourTab.= "<input  type='checkbox' name='". $unChamp ."' id='checkbox" . $unChamp . "'/>";
 					$retourTab.= "</p>";
 				}	
 
 
 			}
+
 			
 			if($unChamp == "image".$nomTable){
 		
-				$img = "<img src='afficherImageBDD.php?base=". $_POST['selectbase']. "&nomTable=". $nomTable . "&id=". $id ."'/>";
+				$img = "<img src='afficherImageBDD.php?selectbase=". $_POST['selectbase']. "&nomTable=". $nomTable . "&id=". $id ."'/>";
 			}
+
+			
 			
 		}
 	
