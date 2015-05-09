@@ -11,6 +11,5 @@
 		while($r = $reqHistorique->fetch(PDO::FETCH_BOTH)){
 			echo "<img id='miniature" . $r[0] . "' class='miniatures' src='afficherImageMiniature.php?selectbase=". $_POST['selectbase']. "&nomTable=". $nomTable . "&id=". $r[0] ."'/>";
 		}
-	
 
 ?>

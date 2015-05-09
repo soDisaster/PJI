@@ -96,6 +96,7 @@
                 type:'post',
                 data: 'selectbase=' + selectbase + '&nomChamp=' + nomChamp + '&valeurChamp=' + valeurChamp + '&idEnCours=' + idEnCours,
                 success : function(content){
+                  tmp = content.split(",");
                   $('#aff').html(tmp[0]);
                   $('#imageLigneBDD').html(tmp[1]);
                   idEnCours = tmp[2];
@@ -114,10 +115,27 @@
           type:'post',
           data: 'selectbase=' + selectbase,
           success : function(content){
-            $('#historique').html(content); 
+            $('#historique').html(content);
           }
-        });
+        }); 
+         $.ajax({
+          url:'historiqueImages.php',
+          type:'post',
+          data: 'selectbase=' + selectbase,
+          success : function(content){
+            tmp = content.split(",");
+            var i = 0;
+            while(tmp[i] != ""){
+              $('#miniature' + tmp[i]).css({
+                 'border': 'solid',
+                 'border-color': 'red'
+               });
+              i = i + 1;
+            }
+          }
+        }); 
       }); 
+
 
 
   $('#plus').click(function() {
