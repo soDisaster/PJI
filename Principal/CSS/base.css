@@ -1,0 +1,57 @@
+select{
+	width: 125px;
+}
+
+#bdd{
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px
+}
+
+#historique{
+	position:absolute;
+	top: 0;
+	right:0;
+}
+
+
+
+
+#imageLigneBDD{
+	height: 200px;
+	width: 200px;
+	border : solid;
+	user-select :none;
+}
+
+
+
+.iconmelon{
+  width: 32px;
+  height: 32px;
+  display:block;
+  user-select :none;
+}
+
+
+#tabImages{
+	position: absolute;
+	left:30%;
+	right:55%;
+}
+
+#aff{
+	position: absolute;
+	left:40%;
+	right:50%;
+	top:70%;
+}
+
+body{
+	user-select :none;
+}
+
+
+
+
+

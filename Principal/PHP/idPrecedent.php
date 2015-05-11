@@ -45,8 +45,8 @@
 					$retourTab.= "<label for='" . $unChamp . "'>" . $unChamp . "</label>";
 					$reqVal = $db->query("SELECT ". $unChamp ." FROM ". $nomTable . " WHERE ". $lesChamps[0]. " = ". $id . "");		
 					$r = $reqVal->fetch();
-					$retourTab.= "<input type='text' id='" . $unChamp . "'' value='". $r[0]  . "'/>";
-					$retourTab.= "<input  type='checkbox' name='". $unChamp ."' id='checkbox" . $unChamp . "'/>";
+					$retourTab.= "<input class='inputBDD' type='text' id='" . $unChamp . "'' value='". $r[0]  . "'/>";
+					$retourTab.= "<input name='" . $unChamp . "' type='checkbox' id='checkbox" . $unChamp . "'/>";
 				 $retourTab.= "</p>";
 				}
 
