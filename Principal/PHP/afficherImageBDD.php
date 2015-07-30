@@ -1,12 +1,32 @@
 <?php
 
+/*
+Permet d'afficher l'image d'un élément de la base.
+Géré dans un fichier séparé sinon l'image est interpretée et est affichée avec des caractères spéciaux.
+*/
 
-	$db = new PDO('sqlite:../Bases/'.$_GET['selectbase']);
-	$nomTable = $_GET['nomTable'];
-	$id = $_GET['id'];
+/* Créer ou charge la base de données choisie */
 
-	$q = $db->query('SELECT image'. $nomTable .' from '. $nomTable . " WHERE id". $nomTable . " = ". $id);
-	header("Content-Type: image/jpg");
-	echo $q->fetchColumn();
+$db = new PDO('sqlite:../Bases/'.$_GET['selectbase']);
+
+/* Nom de la table de cette base de données */
+
+$nomTable = $_GET['nomTable'];
+
+/* Identifiant en cours */
+
+$id = $_GET['id'];
+
+/* Requête permettant de sélectionner l'image voulue dans la base de données */
+
+$q = $db->query('SELECT image'. $nomTable .' from '. $nomTable . " WHERE id". $nomTable . " = ". $id);
+
+/* Précise que c'est une image */
+
+header("Content-Type: image/jpg");
+
+/* Affiche l'image */
+
+echo $q->fetchColumn();
 
 ?>

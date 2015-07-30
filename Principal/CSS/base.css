@@ -1,17 +1,26 @@
 select{
 	width: 125px;
+	max-width: 100%;
 }
 
 #bdd{
 	margin-left: auto;
 	margin-right: auto;
-	width: 200px
+	width: 200px;
+	max-width: 100%;
 }
 
 #historique{
 	position:absolute;
 	top: 0;
 	right:0;
+	height: 100%;
+	width: 150px;
+
+}
+
+.miniatures{
+	margin-left:5px;
 }
 
 
@@ -20,8 +29,8 @@ select{
 #imageLigneBDD{
 	height: 200px;
 	width: 200px;
-	border : solid;
-	user-select :none;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
@@ -30,27 +39,46 @@ select{
   width: 32px;
   height: 32px;
   display:block;
-  user-select :none;
+  max-width: 100%;
 }
 
 
 #tabImages{
-	position: absolute;
-	left:30%;
-	right:55%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-#aff{
-	position: absolute;
-	left:40%;
-	right:50%;
-	top:70%;
-}
+
 
 body{
-	user-select :none;
+	user-select: none;
+	background : transparent;
 }
 
+#blocNC{
+  position: absolute;
+  margin-left: 62%;
+  margin-top: 5%;
+}
+
+img{
+    height: auto;
+} 
+
+#aff{
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+table {
+  padding-top:5px;
+  padding-bottom: 5px;
+}
+
+#types{
+	width: 125px;
+}
 
 
 

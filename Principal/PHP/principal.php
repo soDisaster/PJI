@@ -243,6 +243,7 @@ $(document).ready(function(){
         success : function(content){
           SI L EXECUTION DU FICHIER PHP N'A PAS RENCONTRE DE PROBLEMES
           EXECUTION DU CONTENU DE LA FONCTION success. 
+          TRAITEMENT DES VARIABLES RENVOYEES PAR LE FICHIER PHP
         }
       )} 
   */
