@@ -36,6 +36,7 @@ if($_POST['idEnCours'] != -1){
 else{
 	$idEnCours = 0;
 }
+
 foreach($lesChamps as $unChamp){
 
 	/* Si le champ correspond à imageNomTable
@@ -91,7 +92,6 @@ foreach($lesChamps as $unChamp){
 - $idEnCours permet de mettre l'ID à jour.
 
 Elles seront traitées dans la fonction success de la requête ajax */
-
 
 echo $retourTab .",". $img .",". $idEnCours;
 

@@ -137,13 +137,11 @@ else{
 		unlink($thumb_path4);
 		$j++;
 	}
-
 }
 
 /* On retourne au fichier principal */
 
 header('Location:principal.php');
-exit();
 
 
 

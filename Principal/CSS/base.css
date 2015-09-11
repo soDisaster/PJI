@@ -1,30 +1,30 @@
-select{
-	width: 125px;
-	max-width: 100%;
-}
+
+/* Tableau liste deroulante, plus, champs éditables pour nom de base de données et nom table */
 
 #bdd{
 	margin-left: auto;
 	margin-right: auto;
-	width: 200px;
+	width: 210px;
 	max-width: 100%;
 }
+
+/* Vue d'ensemble */
 
 #historique{
 	position:absolute;
 	top: 0;
 	right:0;
-	height: 100%;
-	width: 150px;
-
+	height: 200px;
+	width: 350px;
 }
+
+/* Miniatures */
 
 .miniatures{
 	margin-left:5px;
 }
 
-
-
+/* Positionnement image centrale */
 
 #imageLigneBDD{
 	height: 200px;
@@ -34,14 +34,17 @@ select{
 }
 
 
+/* Icones svg */
 
 .iconmelon{
-  width: 32px;
-  height: 32px;
-  display:block;
-  max-width: 100%;
+	width: 32px;
+	height: 32px;
+	display:block;
+	max-width: 100%;
 }
 
+
+/* Tableau contenant les flèches et l'image centrale */
 
 #tabImages{
 	margin-left: auto;
@@ -49,36 +52,60 @@ select{
 }
 
 
-
-body{
-	user-select: none;
-	background : transparent;
-}
-
-#blocNC{
-  position: absolute;
-  margin-left: 62%;
-  margin-top: 5%;
-}
+/* Hauteurs images */
 
 img{
-    height: auto;
+	height: auto;
 } 
 
+
+/* Noms et champs éditables pour les champs */
+
 #aff{
-  margin-left: auto;
-  margin-right: auto;
-  
+	margin-left: auto;
+	margin-right: auto;
 }
+
+/* Les tableaux */
 
 table {
-  padding-top:5px;
-  padding-bottom: 5px;
+	padding-top:5px;
+	padding-bottom: 5px;
 }
 
-#types{
-	width: 125px;
+
+#newBase{
+	width : 130px;
 }
+
+#newTable{
+	width : 130px;
+}
+
+#nomchamp{
+	width : 130px;
+}
+
+#valeurParDefaut{
+	width : 100px;
+	margin-top: 10px;
+
+}
+
+#bases{
+	width:160px;
+}
+
+* {
+	-webkit-user-select: none; /* Chrome/Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+ */
+}
+
+
+
+
+
 
 
 

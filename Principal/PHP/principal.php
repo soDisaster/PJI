@@ -1,16 +1,16 @@
 <!-- Page principal
 Regroupe les éléments de l'interface graphique
   - Dossier permettant de choisir les images à ajouter à l'interface.
-  - Liste déroulante affichant les fichier sqlite présents dans le dossier "Bases".
-  - Deux champs éditables : Nom de la base et nom de la table choisis.
-  - Bouton "+" permettant de créer un nouveau fichier sqlite et donc une nouvelle base de données.
+  - Liste déroulante affichant les fichier SQLite présents dans le dossier "Bases".
+  - Deux champs éditables : Nom de la base et nom de la table.
+  - Bouton "+" permettant de créer un nouveau fichier SQLite et donc une nouvelle base de données.
   - Quatre flèches :
      * <  >  Ces flèches permettent de naviguer entre chaque élément de la base, passe d'un ID un autre.
      * <|<|  |>|> Chaque champ est associé à une checkbox. En cochant une ou plusieurs checkboxs et en utilisant
      ces flèches l'utilisateur passera à l'élément précédent (ou suivant) dont l'un des champs cochés à une valeur nulle.
-  - Champ éditable permettant d'écrire le nom d'un nouveau champ.
+  - Champs éditables permettant d'écrire le nom d'un nouveau champ.
   - Bouton "Nouveau champ" permettant de créer un nouveau champ.
-  - Vue d'ensemble (en haut à droite) permettant de voir en miniatures toutes les images de la base de données
+  - Vue d'ensemble (en haut à droite) permettant de voir en miniature toutes les images de la base de données
   et si elles contiennent une valeur nulle ou non.
   Les miniatures sont cliquables et redirige vers l'élément correspondant de la base.
 
@@ -25,6 +25,10 @@ Regroupe les éléments de l'interface graphique
   <link href="../CSS/base.css" rel="stylesheet" type="text/css"/>
   <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 </head>
+
+<?php
+  session_start();
+?>
 
 <body>
 
@@ -68,8 +72,7 @@ Regroupe les éléments de l'interface graphique
   </label>
 
 <!-- 
-input ne s'affichant pas permettant de passer un tableau d'images via le formulaire
-vers le fichier openDir.php.
+input ne s'affichant pas permettant de passer un tableau d'images via le formulaire vers le fichier openDir.php.
 -->
 
   <input id="files" style="display: none;" name="images[]" type="file" multiple />
@@ -96,9 +99,11 @@ via le formulaire vers le fichier openDir.php.
 <table id="bdd">
   <tr>
     <td id="tdListeD">
-      <?php
-      include('listeDeroulante.php'); 
-      ?>
+      <select id="bases" name="bases">
+        <?php
+        include('listeDeroulante.php');
+        ?>
+      </select>
     </td>
 
     <td>
@@ -115,10 +120,10 @@ via le formulaire vers le fichier openDir.php.
     </td>
 
     <td>
-      <input name="newBase" id ="newBase"/> 
+      <input name="newBase" id ="newBase" placeholder="Nom de la nouvelle base" /> 
     </td>
     <td>
-      <input name="newTable" id ="newTable"/>
+      <input name="newTable" id ="newTable" placeholder="Nom de la nouvelle table" />
     </td>
   </tr>
 </table>
@@ -197,13 +202,9 @@ via le formulaire vers le fichier openDir.php.
 
 <div id="blocNC">
 
-   <!--  Bouton pour créer un nouveau champ  -->
-
-  <button id="nouveauChamp"> Nouveau champ </button>
-
   <!--  Champ éditable pour entrer le nom du nouveau champ -->
 
-  <input type="text" name="nomchamp" id ="nomchamp"/> 
+  <input type="text" name="nomchamp" id ="nomchamp" placeholder="Nom du nouveau champ" /> 
 
   <!--  Liste déroulante permettant de sélectionner le type du nouveau champ -->
 
@@ -215,7 +216,15 @@ via le formulaire vers le fichier openDir.php.
     <option value="types"> REAL </option>
   </select>
 
+   <!--  Bouton pour créer un nouveau champ  -->
+
+  <button id="nouveauChamp"> Nouveau champ </button>
+
+  <!--  Champ éditable pour entrer la valeur par défaut pour les images précédentes pour le nouveau champ -->
+
 </div>
+
+<input type="text" name="VpD" id="valeurParDefaut" placeholder="Valeur par défaut" /> 
 
 
 <!--  Conteneur permettant d'afficher le nom des champs,
@@ -250,7 +259,7 @@ $(document).ready(function(){
 
   /* Sélection d'une base de données dans la liste déroulante */
 
-  $('select[name="bases"]').change(function() {
+  $('#bases').change(function() {
     var selectbase = $("select[name='bases'] > option:selected").text();
     idEnCours = -1;
 
@@ -258,7 +267,7 @@ $(document).ready(function(){
      
     $.ajax({
 
-       url:'infosBDD.php',
+      url:'infosBDD.php',
       type:'post',
       data: 'selectbase=' + selectbase + '&idEnCours=' + idEnCours,
       success : function(content){
@@ -456,7 +465,7 @@ $('#plus').click(function() {
         type:'post',
         data: 'newBDD=' + newBDD,
         success : function(content){
-          $('#tdListeD').html(content);
+          $('#bases').html(content);
         }
       });
     }
@@ -474,11 +483,12 @@ $('#nouveauChamp').click(function() {
 
   var nomchamp = $('#nomchamp').val();
   var typechamp = $("select[name='types'] > option:selected").text();
+  var valeurParDefaut = $("#valeurParDefaut").val();
 
   $.ajax({
     url:'nouveauChamp.php',
     type:'post',
-    data: 'BDDchoisie=' + BDDchoisie + '&nomchamp=' + nomchamp + '&typechamp=' + typechamp,
+    data: 'BDDchoisie=' + BDDchoisie + '&nomchamp=' + nomchamp + '&typechamp=' + typechamp + '&valeurParDefaut=' + valeurParDefaut + "&idEnCours=" + idEnCours,
     dataType : 'html',
     success : function(content){
 
@@ -749,8 +759,13 @@ $('#idPrecedent').click(function(){
 $('#form').change(function() {
   var selectbase = $("select[name='bases'] > option:selected").text();
   $('#db').val(selectbase);
-  $('#form').submit();
+  $('#form').submit(); 
 });
+
+   
+
+
+
 
  /* Au clic sur la flèche <|<|, passe à l'ID précédent où les champs séléctionnés ont des valeurs nulles 
  idPrecedentChamps.php
@@ -835,6 +850,8 @@ $('.inputBDD').blur(function() {
 
   });
 });
+
+
 
 
 

@@ -8,7 +8,7 @@ $db = new PDO('sqlite:../Bases/'.$_GET['selectbase']);
 $nomTable = $_GET['nomTable'];
 $id = $_GET['id'];
 
-/* Requetes - Selectionne images miniatures  */
+/* Requête - Sélectionne images miniatures  */
 
 $q = $db->query('SELECT imageMin'. $nomTable .' from '. $nomTable . " WHERE id". $nomTable . " = ". $id);
 header("Content-Type: image/jpg");

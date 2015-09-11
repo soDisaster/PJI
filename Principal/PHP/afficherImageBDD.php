@@ -2,7 +2,7 @@
 
 /*
 Permet d'afficher l'image d'un élément de la base.
-Géré dans un fichier séparé sinon l'image est interpretée et est affichée avec des caractères spéciaux.
+L'affichage est géré dans un fichier séparé sinon l'image est interprétée et est affichée avec des caractères spéciaux.
 */
 
 /* Créer ou charge la base de données choisie */

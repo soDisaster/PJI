@@ -6,9 +6,9 @@ Ces fichiers sont dans le dossier Bases */
 
 /* La liste déroulante */
 
-echo '<select id="bases" name="bases">';
+/* Dossier où on recherche les fichiers SQLite */
 
-/* Dossier où on recherche les fichier SQLite */
+session_start();
 
 $dir = "../Bases";
 
@@ -21,13 +21,12 @@ if (is_dir($dir)) {
         	/* On ne prend que le fichier avec l'extension sqlite */
 
             if ($file != '.' && $file != '..' && strpos($file,".sqlite")){
-                echo '<option value="'.$file.'">'.$file.'</option>'."\n";
+            	echo '<option id="'.$file.'" value="'.$file.'">'.$file.'</option>'."\n";
             }
         }
         closedir($dh);
     }
 }
-echo '</select>';
 
 
 
