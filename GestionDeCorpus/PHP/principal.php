@@ -8,7 +8,7 @@ Regroupe les éléments de l'interface graphique
      * <  >  Ces flèches permettent de naviguer entre chaque élément de la base, passe d'un ID un autre.
      * <|<|  |>|> Chaque champ est associé à une checkbox. En cochant une ou plusieurs checkboxs et en utilisant
      ces flèches l'utilisateur passera à l'élément précédent (ou suivant) dont l'un des champs cochés à une valeur nulle.
-  - Champs éditables permettant d'écrire le nom d'un nouveau champ.
+  - Champs éditables permettant d'écrire le nom d'un nouveau champ et une valeur par défaut optionnelle pour tous les éléments précédents.
   - Bouton "Nouveau champ" permettant de créer un nouveau champ.
   - Vue d'ensemble (en haut à droite) permettant de voir en miniature toutes les images de la base de données
   et si elles contiennent une valeur nulle ou non.
@@ -25,10 +25,6 @@ Regroupe les éléments de l'interface graphique
   <link href="../CSS/base.css" rel="stylesheet" type="text/css"/>
   <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 </head>
-
-<?php
-  session_start();
-?>
 
 <body>
 
