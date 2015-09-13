@@ -19,7 +19,7 @@ Outils utilisés
 - Serveur en local pour les appels à PHP via JQuery. 
 	Utilisation de l'application MAMP sous Mac OS.
 - Pour la base de données, utilisation de SQLite.
-	SQLite Free pour lire les fichiers avec l'extension .sqlite sous MacOs.
+	SQLite Free pour lire les fichiers avec l'extension .sqlite sous Mac OS.
 
 
 Interface graphique
