@@ -7,23 +7,25 @@ Ce projet consiste à réaliser l'application permettant à l'utilisateur de cr�
 Langages de programmation web utilisés
 --------------------------------------
 
-* HTML5
-* CSS
-* JQuery
-* PHP
+- HTML5
+- CSS
+- JQuery
+- PHP
 
 
 Outils utilisés
 ---------------
 
-* Serveur en local pour les appels à PHP via JQuery. 
+- Serveur en local pour les appels à PHP via JQuery. 
 	Utilisation de l'application MAMP sous Mac OS.
-* Pour la base de données, utilisation de SQLite.
+- Pour la base de données, utilisation de SQLite.
 	SQLite Free pour lire les fichiers avec l'extension .sqlite sous MacOs.
 
 
 Interface graphique
 -------------------
+
+Pour le dossier ainsi que les flèches présents sur l'interface graphique, utilsiation d'icônes SVG.
 
   - Dossier permettant de choisir les images à ajouter à l'interface.
   - Liste déroulante affichant les fichier SQLite présents dans le dossier "Bases".
@@ -46,7 +48,6 @@ Ce dossier comporte 3 bases de données.
 La base de données "animaux.sqlite". J'utilisais ce sujet simple pour sujet test en développement.
 Les bases de données "histoire.sqlite" et "objet.sqlite" que j'ai utilisé pour présenter ma soutenance.
 La base "beaucoupDeMiniatures.sqlite" qui me permet de tester l'application avec beaucoup d'images.
-
 
 Exécution
 ---------
