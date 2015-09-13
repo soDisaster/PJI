@@ -55,6 +55,11 @@ Exécution
 Pour lancer le projet, ouvrir le fichier : principal.php
 
 
+Vidéo prototype low fidelity
+----------------------------
+
+https://github.com/soDisaster/PJI/
+
 
 
 
